@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { WorkerModule } from 'angular-web-worker/angular'
 
 import { AppComponent } from './app.component';
-import { ExampleWorker } from './example.worker';
+import { ExampleWorker } from './updateFeed.worker';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { ExampleWorker } from './example.worker';
   imports: [
     BrowserModule,
     WorkerModule.forWorkers([
-      {worker: ExampleWorker, initFn: () => new Worker(new URL('./example.worker.ts', import.meta.url), {type: 'module'})},
+      {worker: ExampleWorker, initFn: () => new Worker(new URL('./updateFeed.worker.ts', import.meta.url), {type: 'module'})},
       // {worker: ExampleWorker, initFn: () => new Worker('./example.worker.ts', {type: 'module'})},
     ])
   ],
