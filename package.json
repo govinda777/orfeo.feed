@@ -1,0 +1,27 @@
+{
+  "name": "orfeo.feed",
+  "version": "1.0.0",
+  "description": "Feed Orfeo, UI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/govinda777/orfeo.feed.git"
+  },
+  "keywords": [
+    "#orfeo",
+    "#connection",
+    "#UI",
+    "#py",
+    "#readFeed",
+    "#IframePossibilit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/govinda777/orfeo.feed/issues"
+  },
+  "homepage": "https://github.com/govinda777/orfeo.feed#readme"
+}
