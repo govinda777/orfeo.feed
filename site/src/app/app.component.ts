@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { WorkerClient, WorkerManager } from 'angular-web-worker/angular';
-import { ExampleWorker } from './updateFeed.worker';
+import { ExampleWorker } from './example.worker';
 import { longOperation } from './long-operation';
 
 @Component({

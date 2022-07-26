@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { WorkerModule } from 'angular-web-worker/angular'
 
 import { AppComponent } from './app.component';
-import { ExampleWorker } from './updateFeed.worker';
+import { ExampleWorker } from './example.worker';
 
 @NgModule({
   declarations: [
