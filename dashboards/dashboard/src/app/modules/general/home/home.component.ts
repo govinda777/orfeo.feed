@@ -48,6 +48,12 @@ export class HomeComponent {
           link: 'components'
         },
         {
+          name: 'Dashboard',
+          description: 'Channel component with Input, Output and Event Emitter',
+          icon: 'far fa-clone',
+          link: 'dashboard'
+        },
+        {
           name: 'Services',
           description: 'Use services to view a playlist and a youtube player',
           icon: 'fas fa-handshake',

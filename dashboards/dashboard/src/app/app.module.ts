@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardCardComponent } from './dashboard.card/dashboard.card.component';
 
 
 @NgModule({
@@ -16,7 +15,6 @@ import { DashboardCardComponent } from './dashboard.card/dashboard.card.componen
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    DashboardCardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

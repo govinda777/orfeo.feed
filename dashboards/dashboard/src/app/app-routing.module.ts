@@ -39,6 +39,11 @@ const routes: Routes = [
       .then(mod => mod.TutorialModule)
   },
   {
+    path: 'dashboard',
+    loadChildren: () => import('./modules/application/dashboard/tutorial.module')
+      .then(mod => mod.TutorialModule)
+  },
+  {
     path: 'forms',
     loadChildren: () => import('./modules/application/forms/tutorial.module')
       .then(mod => mod.TutorialModule)
