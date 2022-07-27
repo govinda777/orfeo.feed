@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TutorialService } from '../tutorial.service';
 import { DashboardCard } from './card';
 
 
@@ -9,11 +10,25 @@ import { DashboardCard } from './card';
 })
 export class DashboardCardComponent implements OnInit {
 
-  model = {} as DashboardCard;
+  model = new DashboardCard;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  loaded: boolean;
+  constructor(
+    private service: TutorialService) {
+    this.loaded = false;
   }
 
+  ngOnInit(): void {
+    this.get();
+  }
+
+  get(): void {
+    this.loaded = false;
+    this.service.getCards()
+      .subscribe(
+        model => {
+          this.model = model as DashboardCard;
+          this.loaded = true;
+        });
+  }
 }
