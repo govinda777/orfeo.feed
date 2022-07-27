@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardCard } from './dashboard.card';
+import { DashboardCard } from './card';
 
 
 @Component({
-  selector: 'app-dashboard.card',
-  templateUrl: './dashboard.card.component.html',
-  styleUrls: ['./dashboard.card.component.scss']
+  selector: 'app-dashboard-card',
+  templateUrl: './items.component.html',
+  styleUrls: ['./items.component.css']
 })
 export class DashboardCardComponent implements OnInit {
 

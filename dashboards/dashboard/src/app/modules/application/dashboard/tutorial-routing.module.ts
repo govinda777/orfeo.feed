@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { TutorialComponent } from './tutorial.component';
 
 import { DashboardTemplateComponent } from './template/items.component';
+import { DashboardCardComponent } from './card/items.component';
+import { DashboardDetailComponent } from './detail/items.component';
 
 const routes: Routes = [
   {
@@ -13,6 +15,8 @@ const routes: Routes = [
         loadChildren: () => import('../dashboard/00-main/exercice.module')
           .then(mod => mod.ExerciceModule)
       },
+      { path: 'card', component: DashboardCardComponent },
+      { path: 'detail', component: DashboardDetailComponent },
       { path: 'template', component: DashboardTemplateComponent },
 
       {
