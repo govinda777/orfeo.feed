@@ -39,8 +39,7 @@
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.js"
-            ],
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            ]
           },
           "configurations": {
             "production": {
@@ -108,12 +107,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "scripts": []
           }
         }
       }
     }
-  },
-  "defaultProject": "angular-web-worker-example"
+  }
 }

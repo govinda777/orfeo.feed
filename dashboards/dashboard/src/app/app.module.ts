@@ -4,14 +4,14 @@ import { WorkerModule } from 'angular-web-worker/angular'
 
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './config/config.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardCardComponent } from './dashboard.card/dashboard.card.component';
 import { DashboardCardDetailComponent } from './dashboard.card.detail/dashboard.card.detail.component';
 import { FeedComponent } from './feed/feed.component';
 import { FeedService } from './feed/feed.service';
-import { ConfigService } from './config/config.service';
+import { ConfigService } from "./config/config.service";
 
 @NgModule({
   declarations: [
@@ -24,9 +24,9 @@ import { ConfigService } from './config/config.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [FeedService, ConfigService],
+  providers: [ ConfigService, FeedService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
