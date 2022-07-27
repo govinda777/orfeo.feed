@@ -30,22 +30,22 @@ const routes: Routes = [
 
   {
     path: 'bootstrap',
-    loadChildren: () => import('./modules/application/example-bootstrap/tutorial.module')
+    loadChildren: () => import('./modules/application/bootstrap/tutorial.module')
       .then(mod => mod.TutorialModule)
   },
   {
     path: 'components',
-    loadChildren: () => import('./modules/application/example-components/tutorial.module')
+    loadChildren: () => import('./modules/application/components/tutorial.module')
       .then(mod => mod.TutorialModule)
   },
   {
     path: 'forms',
-    loadChildren: () => import('./modules/application/example-forms/tutorial.module')
+    loadChildren: () => import('./modules/application/forms/tutorial.module')
       .then(mod => mod.TutorialModule)
   },
   {
     path: 'services',
-    loadChildren: () => import('./modules/application/example-services/tutorial.module')
+    loadChildren: () => import('./modules/application/services/tutorial.module')
       .then(mod => mod.TutorialModule)
   },
 
