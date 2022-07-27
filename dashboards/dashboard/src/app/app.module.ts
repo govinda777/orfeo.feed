@@ -1,32 +1,33 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { WorkerModule } from 'angular-web-worker/angular'
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './modules/general/home/home.component';
+import { NotFoundComponent } from './modules/general/not-found/not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { ConfigComponent } from './config/config.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DashboardCardComponent } from './dashboard.card/dashboard.card.component';
-import { DashboardCardDetailComponent } from './dashboard.card.detail/dashboard.card.detail.component';
-import { FeedComponent } from './feed/feed.component';
-import { FeedService } from './feed/feed.service';
-import { ConfigService } from "./config/config.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfigComponent,
-    DashboardComponent,
-    DashboardCardComponent,
-    DashboardCardDetailComponent,
-    FeedComponent
+    HomeComponent,
+    NotFoundComponent,
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
-  providers: [ ConfigService, FeedService ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
