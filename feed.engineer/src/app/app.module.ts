@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { WorkerModule } from 'angular-web-worker/angular'
+import { WorkerManager, WorkerModule } from 'angular-web-worker/angular'
 
 import { AppComponent } from './app.component';
 import { ExampleWorker } from './updateFeed.worker';
@@ -16,7 +16,7 @@ import { ExampleWorker } from './updateFeed.worker';
       // {worker: ExampleWorker, initFn: () => new Worker('./example.worker.ts', {type: 'module'})},
     ])
   ],
-  providers: [],
+  providers: [ExampleWorker],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

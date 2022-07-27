@@ -10,6 +10,8 @@ import { Config } from './config';
 })
 export class ConfigComponent implements OnInit {
 
+  config = {} as Config;
+
   constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {

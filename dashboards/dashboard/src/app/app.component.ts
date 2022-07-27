@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { WorkerClient, WorkerManager } from 'angular-web-worker/angular';
-import { ExampleWorker } from './updateFeed.worker';
-import { longOperation } from './long-operation';
+
 
 @Component({
   selector: 'app-root',
@@ -13,18 +12,17 @@ export class AppComponent implements OnInit, AfterViewInit {
   result = 0;
   sliderTranslate = 'translateX(0px)';
 
-  private client: WorkerClient<ExampleWorker>;
   private animation = {
     translate: 0,
     rightDirection: true
   };
 
-  constructor(private workerManager: WorkerManager) {
-    this.client = this.workerManager.createClient(ExampleWorker);
+  constructor() {
+    
   }
 
   ngOnInit(): void {
-    this.client.connect();
+    
   }
 
   ngAfterViewInit(): void {
@@ -46,7 +44,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   async handleLongOperation(): Promise<void> {
-    this.result = await this.client.call(w => w.doLongOperation());
-    // this.result = longOperation(2500);
+   
   }
 }

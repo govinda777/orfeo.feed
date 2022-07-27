@@ -3,31 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { WorkerModule } from 'angular-web-worker/angular'
 
 import { AppComponent } from './app.component';
-import { ExampleWorker } from './updateFeed.worker';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './config/config.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { Dashboard } from './dashboard.card/dashboard.card.component';
-import { Dashboard } from './dashboard.card.detail/dashboard.card.detail.component';
+import { DashboardCardComponent } from './dashboard.card/dashboard.card.component';
+import { DashboardCardDetailComponent } from './dashboard.card.detail/dashboard.card.detail.component';
+import { FeedComponent } from './feed/feed.component';
+import { FeedService } from './feed/feed.service';
+import { ConfigService } from './config/config.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfigComponent,
     DashboardComponent,
-    Dashboard.CardComponent,
-    Dashboard.Card.DetailComponent
+    DashboardCardComponent,
+    DashboardCardDetailComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
-    WorkerModule.forWorkers([
-      {worker: ExampleWorker, initFn: () => new Worker(new URL('./updateFeed.worker.ts', import.meta.url), {type: 'module'})},
-      // {worker: ExampleWorker, initFn: () => new Worker('./example.worker.ts', {type: 'module'})},
-    ]),
     HttpClientModule,
   ],
-  providers: [],
+  providers: [FeedService, ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
