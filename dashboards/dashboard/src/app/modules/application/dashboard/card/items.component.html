@@ -6,20 +6,27 @@
   
     <div class="card-header">
 
-      <div class="shadow-none p-3 mb-5 bg-light rounded"><h2>{{model.title}}</h2></div>
-      <div  ng-show="plus" class="shadow-sm p-3 mb-5 bg-body rounded">Title - old - old</div>
-      <div  ng-show="plus" class="shadow p-3 mb-5 bg-body rounded">Title - old</div>
-      <div  ng-show="plus" class="shadow-lg p-3 mb-5 bg-body rounded">Title</div>
+      <h3>{{model.title}}</h3>
+      <div  [class.visually-hidden]="plus" class="shadow-sm p-3 mb-5 bg-body rounded"><b>Title - old - old</b></div>
+      <div  [class.visually-hidden]="plus" class="shadow p-3 mb-5 bg-body rounded"><b>Title - old</b></div>
+      <div  [class.visually-hidden]="plus" class="shadow-lg p-3 mb-5 bg-body rounded"><b>Title</b></div>
         
     </div>
 
-    <div ng-show="plus" class="card-body">
+    <div [class.visually-hidden]="plus" class="card-body">
       <p>{{model.desc}}</p>
     </div>
 
     <div class="card-footer">
-      <a (click)="toggle()" class="btn btn-primary">[+]</a>
+      <a (click)="toggle()" class="btn" [class.btn-primary]="!plus" >[+]</a>
     </div>
 
   </div>
+  
+  <ul>
+    <li><input type="radio" value="1" name="old" ngModel>Title old</li>
+    <li><input type="radio" value="2" name="old" ngModel>Title old - old</li>
+    <li><input type="radio" value="3" name="old" ngModel>Title old - old - old</li>
+    <li><h3><input type="radio" value="4" name="old" ngModel>Title old - old - old - old</h3></li>
+  </ul>
   

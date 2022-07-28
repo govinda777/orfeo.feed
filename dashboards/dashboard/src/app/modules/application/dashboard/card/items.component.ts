@@ -30,6 +30,8 @@ export class DashboardCardComponent implements OnInit {
   }
 
   toggle() {
+    console.log("aqui")
     this.plus = !this.plus;
+    return this.plus;
   }
 }
