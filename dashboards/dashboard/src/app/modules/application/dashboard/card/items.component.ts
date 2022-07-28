@@ -27,6 +27,7 @@ export class DashboardCardComponent implements OnInit {
     this.service.getCards()
       .subscribe(
         model => {
+          console.log(model)
           this.model = model as DashboardCard;
           this.loaded = true;
         });
