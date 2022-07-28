@@ -9,8 +9,8 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AppComponent implements OnInit {
   title = 'angular-ssr';
-  footerUrl = 'https://www.ganatan.com/';
-  footerLink = 'www.ganatan.com';
+  footerUrl = 'https://govindasystems.com';
+  footerLink = 'www.govindasystems.com';
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: object) {
