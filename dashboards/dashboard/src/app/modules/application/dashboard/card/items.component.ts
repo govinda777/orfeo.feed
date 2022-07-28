@@ -11,11 +11,13 @@ import { DashboardCard } from './card';
 export class DashboardCardComponent implements OnInit {
 
   model = new DashboardCard;
-
   loaded: boolean;
+  plus: boolean;
+
   constructor(
     private service: TutorialService) {
     this.loaded = false;
+    this.plus = true;
   }
 
   ngOnInit(): void {
@@ -24,12 +26,10 @@ export class DashboardCardComponent implements OnInit {
 
   get(): void {
     this.loaded = false;
-    this.service.getCards()
-      .subscribe(
-        model => {
-          console.log(model)
-          this.model = model as DashboardCard;
-          this.loaded = true;
-        });
+    //this.model = this.service.getCard()
+  }
+
+  toggle() {
+    this.plus = !this.plus;
   }
 }

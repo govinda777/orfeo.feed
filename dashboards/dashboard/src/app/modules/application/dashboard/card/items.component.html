@@ -1,21 +1,24 @@
 <h1>CARD</h1>
 
-<div class="card" >
+<div class="card" style="width: 18rem">
                     
-    <img 
-    src="{{model.img}}"/>
+    <img src="{{model.img}}"/>
   
-
     <div class="card-header">
-      <h2>{{model.title}}</h2>
+
+      <div class="shadow-none p-3 mb-5 bg-light rounded"><h2>{{model.title}}</h2></div>
+      <div  ng-show="plus" class="shadow-sm p-3 mb-5 bg-body rounded">Title - old - old</div>
+      <div  ng-show="plus" class="shadow p-3 mb-5 bg-body rounded">Title - old</div>
+      <div  ng-show="plus" class="shadow-lg p-3 mb-5 bg-body rounded">Title</div>
+        
     </div>
 
-    <div class="card-body">
+    <div ng-show="plus" class="card-body">
       <p>{{model.desc}}</p>
     </div>
 
     <div class="card-footer">
-      <a href="{{model.linkRef}}">[+]</a>
+      <a (click)="toggle()" class="btn btn-primary">[+]</a>
     </div>
 
   </div>
