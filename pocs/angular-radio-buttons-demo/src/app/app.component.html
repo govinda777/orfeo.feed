@@ -1,0 +1,57 @@
+<div class="jumbotron text-center">
+  <h1 class="display-5">Radio Buttons in Angular</h1>
+</div>
+
+<div class="container">
+  <div class="row custom-wrapper">
+    <div class="col-md-12">
+      <!-- Form starts -->
+      <form #myForm="ngForm" (submit)="submitForm(myForm)" novalidate>
+        <!-- Gender -->
+        <div class="group-gap">
+          <h5 class="mb-3">Gender</h5>
+          <div class="d-block my-3">
+            -----------------
+            {{myForm.value.gender}}
+            -----------------
+            <div class="custom-control custom-radio">
+              <input
+                id="male"
+                type="radio"
+                class="custom-control-input"
+                value="male"
+                name="gender"
+                ngModel
+                required
+              />
+              <label class="custom-control-label" for="male">Male</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input
+                id="female"
+                type="radio"
+                class="custom-control-input"
+                value="female"
+                name="gender"
+                ngModel
+                required
+              />
+              <label class="custom-control-label" for="female">Female</label>
+            </div>
+
+            <div class="invalid-feedback" *ngIf="isSubmitted && myForm.invalid">
+              <p>Please select either value</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-danger btn-lg btn-block">
+          Find out gender
+        </button>
+      </form>
+      <!-- Form ends -->
+    </div>
+  </div>
+</div>
