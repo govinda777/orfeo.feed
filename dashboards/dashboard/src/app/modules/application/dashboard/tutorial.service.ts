@@ -23,7 +23,7 @@ export class TutorialService {
   card: DashboardCard;
   constructor(private http: HttpClient) {
     this.card = new DashboardCard;
-    this.url = 'https://rss.app/feeds/DTDaQVpFOBsJ2mN2.xml?dfbvdfb';
+    this.url = 'https://s3.amazonaws.com/govinda.feed/feed.xml';
    }
 
   getCard(): DashboardCard {

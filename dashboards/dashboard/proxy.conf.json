@@ -1,0 +1,9 @@
+{
+    "*": {
+      "target": "https://s3.amazonaws.com",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+    }
+  }
+  
