@@ -6,13 +6,21 @@
 
   <div class="card-header">
 
-    <div [class.visually-hidden]="!(old == 4)" class="shadow-none p-3 bg-light rounded"><h2>Title - old - old - old - old</h2></div>
+    <div [class.visually-hidden]="!(old == 4)" class="shadow-none p-3 bg-light rounded">
+      <h2>Title - old - old - old - old</h2>
+    </div>
     
-    <div [class.visually-hidden]="!(old == 3)" class="shadow-sm p-3 bg-body rounded"><b>Title - old - old - old</b></div>
+    <div [class.visually-hidden]="!(old == 3)" class="shadow-sm p-3 bg-body rounded">
+      <b>Title - old - old - old</b>
+    </div>
     
-    <div [class.visually-hidden]="!(old == 2)" class="shadow p-3 bg-body rounded"><b>{{model.title}}</b></div>
+    <div [class.visually-hidden]="!(old == 2)" class="shadow p-3 bg-body rounded">
+      <b>{{model.title}}</b>
+    </div>
 
-    <div [class.visually-hidden]="!(old == 1)" class="shadow-lg p-3 bg-body rounded"><b>Title - old</b></div>
+    <div [class.visually-hidden]="!(old == 1)" class="shadow-lg p-3 bg-body rounded">
+      <b>Title - old</b>
+    </div>
 
   </div>
 
@@ -30,8 +38,46 @@
   </div>
 
 </div>
-  nfgnfgnfgnfgnfg
-..............
-<ng-template ngFor let-item [ngForOf]="items" let-i="index" [ngForTrackBy]="trackByFn">
-  <li>...</li>
-</ng-template>
+
+
+<fieldset>
+
+  <p>old : {{old}}</p>
+  <div>
+    <input type="radio" id="old1" name="old" value="1"
+           checked>
+    <label for="old1">
+      <div class="shadow-lg p-3 bg-body rounded">
+        <b>Title - old</b>
+      </div>
+    </label>
+  </div>
+
+  <div>
+    <input type="radio" id="old2" name="old" value="2">
+    <label for="old2">
+      <div class="shadow p-3 bg-body rounded">
+        <b>{{model.title}}</b>
+      </div>
+    </label>
+  </div>
+
+  <div>
+    <input type="radio" id="old3" name="old" value="3">
+    <label for="old3">
+      <div class="shadow-sm p-3 bg-body rounded">
+        <b>Title - old - old - old</b>
+      </div>
+    </label>
+  </div>
+
+  <div>
+    <input type="radio" id="old4" name="old" value="4">
+    <label for="old4">
+      <div class="shadow-none p-3 bg-light rounded">
+        <h2>Title - old - old - old - old</h2>
+      </div>
+    </label>
+  </div>
+
+</fieldset>
