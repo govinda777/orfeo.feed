@@ -15,12 +15,31 @@ export class DashboardCardComponent implements OnInit {
   loaded: boolean;
   plus: boolean;
   old: number;
+  items = ['First', 'Second', 'Third'];
+
+  people: any[] = [
+    {
+      "name": "Douglas  Pace"
+    },
+    {
+      "name": "Mcleod  Mueller"
+    },
+    {
+      "name": "Day  Meyers"
+    },
+    {
+      "name": "Aguirre  Ellis"
+    },
+    {
+      "name": "Cook  Tyson"
+    }
+  ];
 
   constructor(
     private service: TutorialService) {
     this.loaded = false;
     this.plus = true;
-    this.old = 2;
+    this.old = 4;
   }
 
   ngOnInit(): void {
@@ -33,9 +52,12 @@ export class DashboardCardComponent implements OnInit {
   }
 
   toggle() {
-    console.log("aqui")
     this.plus = !this.plus;
     return this.plus;
+  }
+
+  showOld(indexOld : number) : boolean {
+    return !(this.old == indexOld);
   }
 
 }
