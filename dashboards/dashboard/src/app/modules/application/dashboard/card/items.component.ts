@@ -60,4 +60,17 @@ export class DashboardCardComponent implements OnInit {
     return !(this.old == indexOld);
   }
 
+  getOpacity(old : number) {
+    if(old == 4)
+      return 1;
+    
+    if(old == 3)
+      return 0.6;
+
+    if(old == 2)
+      return 0.7;
+
+    return 1;
+  }
+
 }
