@@ -15,31 +15,14 @@ export class DashboardCardComponent implements OnInit {
   loaded: boolean;
   plus: boolean;
   old: number;
-  items = ['First', 'Second', 'Third'];
-
-  people: any[] = [
-    {
-      "name": "Douglas  Pace"
-    },
-    {
-      "name": "Mcleod  Mueller"
-    },
-    {
-      "name": "Day  Meyers"
-    },
-    {
-      "name": "Aguirre  Ellis"
-    },
-    {
-      "name": "Cook  Tyson"
-    }
-  ];
+  showOldText: boolean;
 
   constructor(
     private service: TutorialService) {
     this.loaded = false;
     this.plus = true;
     this.old = 4;
+    this.showOldText = true;
   }
 
   ngOnInit(): void {
@@ -48,7 +31,6 @@ export class DashboardCardComponent implements OnInit {
 
   get(): void {
     this.loaded = false;
-    //this.model = this.service.getCard()
   }
 
   toggle() {
@@ -62,7 +44,7 @@ export class DashboardCardComponent implements OnInit {
 
   getOpacity(old : number) {
     if(old == 4)
-      return 1;
+      return 0.4;
     
     if(old == 3)
       return 0.6;
