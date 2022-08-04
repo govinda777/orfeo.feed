@@ -1,22 +1,33 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { WorkerManager, WorkerModule } from 'angular-web-worker/angular'
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ExampleWorker } from './updateFeed.worker';
+import { HomeComponent } from './modules/general/home/home.component';
+import { NotFoundComponent } from './modules/general/not-found/not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    NotFoundComponent,
   ],
   imports: [
-    BrowserModule,
-    WorkerModule.forWorkers([
-      {worker: ExampleWorker, initFn: () => new Worker(new URL('./updateFeed.worker.ts', import.meta.url), {type: 'module'})},
-      // {worker: ExampleWorker, initFn: () => new Worker('./example.worker.ts', {type: 'module'})},
-    ])
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
-  providers: [ExampleWorker],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,52 +1,33 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { WorkerClient, WorkerManager } from 'angular-web-worker/angular';
-import { ExampleWorker } from './updateFeed.worker';
-import { longOperation } from './long-operation';
+import { Component, OnInit } from '@angular/core';
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit {
-  
-  result = 0;
-  sliderTranslate = 'translateX(0px)';
+export class AppComponent implements OnInit {
+  title = 'angular-ssr';
+  footerUrl = 'https://govindasystems.com';
+  footerLink = 'www.govindasystems.com';
 
-  private client: WorkerClient<ExampleWorker>;
-  private animation = {
-    translate: 0,
-    rightDirection: true
-  };
-
-  constructor(private workerManager: WorkerManager) {
-    this.client = this.workerManager.createClient(ExampleWorker);
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: object) {
   }
 
   ngOnInit(): void {
-    this.client.connect();
-  }
 
-  ngAfterViewInit(): void {
-    requestAnimationFrame(this.animateFrame.bind(this))
-  }
-
-  private animateFrame(): void {
-    this.animation.translate = this.animation.rightDirection ?
-                                this.animation.translate + 5 :
-                                this.animation.translate - 5;
-
-    if (this.animation.translate > (window.innerWidth * 0.2) + 40) {
-      this.animation.rightDirection = false;
-    } else if (this.animation.translate < 0){
-      this.animation.rightDirection = true;
+    if (isPlatformBrowser(this.platformId)) {
+      const navMain = document.getElementById('navbarCollapse');
+      if (navMain) {
+        navMain.onclick = function onClick() {
+          if (navMain) {
+            navMain.classList.remove("show");
+          }
+        }
+      }
     }
-    this.sliderTranslate = `translateX(${this.animation.translate}px)`;
-    requestAnimationFrame(this.animateFrame.bind(this));
   }
 
-  async handleLongOperation(): Promise<void> {
-    this.result = await this.client.call(w => w.doLongOperation());
-    // this.result = longOperation(2500);
-  }
 }
