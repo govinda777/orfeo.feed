@@ -12,7 +12,8 @@
     "dev:ssr": "ng run angular-starter:serve-ssr",
     "serve:ssr": "node dist/angular-starter/server/main.js",
     "build:ssr": "ng build && ng run angular-starter:server",
-    "prerender": "ng run angular-starter:prerender"
+    "prerender": "ng run angular-starter:prerender",
+    "cypress:open": "npx cypress open"
   },
   "private": true,
   "dependencies": {
