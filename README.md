@@ -4,6 +4,10 @@
 
 Pacote responsável por ler feeds apresentálos e disponibilizar um layout pra iframes.
 
+
+
+
+
 ## Como instalar
 
 ```cmd
@@ -29,6 +33,14 @@ npm start
 npm test
 
 ```
+
+## Componentes tipograficos
+
+![](./doc/home.jpeg)
+
+![](./doc/card.component.jpeg)
+
+
 ## Liks
 
 

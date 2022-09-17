@@ -21,7 +21,7 @@ export class DashboardCardComponent implements OnInit {
     private service: TutorialService) {
     this.loaded = false;
     this.plus = true;
-    this.old = 4;
+    this.old = 2;
     this.showOldText = true;
   }
 
